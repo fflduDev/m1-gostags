@@ -105,8 +105,10 @@ public class LinkedListImpl implements LinkedList {
 		}
 		
 		while(current.next != null) {
+			String lastData = current.data;
 			if (current.next.data == itemToInsertBefore) {
 				//TODO
+				current
 			}
 		}
 		return null;

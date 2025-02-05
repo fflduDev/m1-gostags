@@ -13,7 +13,7 @@ public interface LinkedList {
 		// true if deleted, false if not there or error
 	public Boolean insertBefore(String newItem, String itemToInsertBefore);
 	public Boolean insertAfter(String newItem, String itemToInsertAfter);
-	
+
 	
 	
 	//EC
