@@ -1,42 +1,69 @@
 package stack; 
 
 public class StackImpl implements Stack {
-
+	int length = 6;
+	String[] names = new String[length];
+	int size = 0;
+	int top = -1;
 	@Override
 	public void push(String s) {
-	
-		System.out.println("thing i added to stack: " + s);
-	
+		if(size <= length-1) {
+			names[size] = s;
+			size+=1;
+			top+=1;
+			System.out.println("thing i added to stack: " + s);
+		}
+		else {
+			System.out.println("The array is full");
+		}
 	}
 
 	@Override
 	public String pop() {
 		// TODO Auto-generated method stub
-		return null;
+		String temp;
+		if(top!=-1) {
+			temp = names[top];
+			names[top] = null;
+			size-=1;
+			top-=1;
+			return temp;
+		}
+		else {
+			System.out.println("The stack is empty");
+			return null;
+		}
+		
 	}
 
 	@Override
 	public Boolean isEmpty() {
 		// TODO Auto-generated method stub
-		return null;
+		if(top == -1) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
 	public Boolean isFull() {
 		// TODO Auto-generated method stub
-		return null;
+		if(top == length-1) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		return 0;
+		return size;
 	}
 
 	@Override
 	public String peek() {
 		// TODO Auto-generated method stub
-		return null;
+		return names[size-1];
 	}
 
 	@Override
