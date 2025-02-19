@@ -19,6 +19,7 @@ public class StackTester {
 		System.out.println(stackTester.isFull());
 		stackTester.push("thing7");
 		System.out.println(stackTester.pop());
+		stackTester.display();
 		
 		
 	}

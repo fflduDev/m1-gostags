@@ -69,13 +69,15 @@ public class StackImpl implements Stack {
 	@Override
 	public void setCapacity(int size) {
 		// TODO Auto-generated method stub
-		
+		names = new String[size];
 	}
 
 	@Override
 	public void display() {
 		// TODO Auto-generated method stub
-		
+		for(String s: names) {
+			System.out.println(s);
+		}
 	}
  
 
