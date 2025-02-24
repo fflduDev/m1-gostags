@@ -1,13 +1,13 @@
 package queue;
 
 public class QueueImpl implements Queue {
-	String[] names = new String[6];
+	String[] names = new String[25];
 	int front = -1;
 	int back = -1;
 	@Override
 	public boolean isFull() {
-	     //first array: Index 0, last array index: 5. 
-	     if(back == 5) {
+	     //first array: Index 0, last array index: 24 bus MAX Capacity. 
+	     if(back == 24) {
 	    	 return true;
 	     } else {
 	    	 return false;
@@ -69,8 +69,8 @@ public class QueueImpl implements Queue {
 
 	@Override
 	public String peek() {
-		System.out.println("Front value is: " + names[front]);
-		return null;
+		
+		return names[front];
 	}
 
 }
