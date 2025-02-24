@@ -1,13 +1,21 @@
 package linkedList;
 
+import java.util.List;
+import java.util.*;
+
 public class LinkedListImpl implements LinkedList {
 	ListItem head;
 
 	@Override
 	public Boolean isItemInList(String thisItem) {
-		// TODO Auto-generated method stub
-		
-		return null;
+		ListItem current = head;
+		while (current != null) {
+			if (current.data.equals(thisItem)) {
+				return true;
+			}
+			current = current.next;
+		}
+		return false;
 	}
 
 	@Override
@@ -91,40 +99,63 @@ public class LinkedListImpl implements LinkedList {
 	@Override
 	public Boolean insertBefore(String newItem, String itemToInsertBefore) {
 		
-		if(head == null) {
-			addItem(newItem);
-			return true;
-		}
-		
-		ListItem current = head;
-		
-		if(current.data == head.data) {
-			addItem(head.data);
-			head.data = newItem;
-			return true;
-		}
-		
-		while(current.next != null) {
-			String lastData = current.data;
-			if (current.next.data == itemToInsertBefore) {
-				//TODO
-				current
-			}
-		}
-		return null;
+		if (head == null) 
+			return false;
+
+        if (head.data.equals(itemToInsertBefore)) {
+            ListItem newNode = new ListItem(newItem);
+            newNode.next = head;
+            head = newNode;
+            return true;
+        }
+
+        ListItem current = head;
+        while (current.next != null) {
+            if (current.next.data.equals(itemToInsertBefore)) {
+                ListItem newNode = new ListItem(newItem);
+                newNode.next = current.next;
+                current.next = newNode;
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
 	}
 
 	@Override
 	public Boolean insertAfter(String newItem, String itemToInsertAfter) {
-		// TODO Auto-generated method stub
-		return null;
+		ListItem current = head;
+		while (current != null) {
+			if(current.data.equals(itemToInsertAfter)) {
+				ListItem newNode = new ListItem(newItem);
+				newNode.next = current.next;
+				current.next = newNode;
+				return true;
+			}
+			current = current.next;
+		}
+		return false;
+		
 	}
 
 	@Override
 	public void sort() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
+		if (head == null || head.next == null) 
+			return;
+
+        List<String> dataList = new ArrayList<>();
+        ListItem current = head;
+        while (current != null) {
+            dataList.add(current.data);
+            current = current.next;
+        }
+
+        Collections.sort(dataList);
+
+        current = head;
+        for (String data : dataList) {
+            current.data = data;
+            current = current.next;
+    }
+}
 }
